@@ -1,21 +1,39 @@
 # MoonBit构建系统
-## 使用 `moon new` 命令构建项目
-### 项目/模块
+
+## moon的命令行
+
+### `moon register`
+- 在 mooncakes.io 注册一个账户
+### `moon login`
+- 登录到您的账户 = username
+### `moon new`
+- 项目/模块(个人理解)
     - 一个项目文件夹下可以有多个模块，建议使用`moon new`命令使用构建向导，创建自定义项目
     - 项目路径和模块名称无必然联系，可以指定模块名称
     - 如果一个项目文件夹下只有一个模块，此时模块名称可以理解为项目名称
-### 模块目录结构
+- 创建一个新的 MoonBit 模块
+    - 用法：moon new [选项] <路径>
+    - 参数：`<PATH>` — 新项目的路径
+    - 选项：
+        - `--user<用户>` — 包的开发者名称。默认为已登录用户的用户名
+        - `--name <名称>`— 包的名称。默认为路径的最后一部分
 ```
-moonBit-project
+moon new ./practice
+```
+![模块目录结构](./pics/module-directory-structure.webp)
+- 模块目录结构
+```
+my_project
+├── Agents.md
+├── cmd
+│   └── main
+│       ├── main.mbt
+│       └── moon.pkg.json
 ├── LICENSE
-├── README.md
 ├── moon.mod.json
-└── src
-    ├── lib
-    │   ├── hello.mbt
-    │   ├── hello_test.mbt
-    │   └── moon.pkg.json
-    └── main
-        ├── main.mbt
-        └── moon.pkg.json
+├── moon.pkg.json
+├── my_project_test.mbt
+├── my_project.mbt
+├── README.mbt.md
+└── README.md -> README.mbt.md
 ```

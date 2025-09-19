@@ -1,10 +1,7 @@
-# ZhiWei Yang Git教程
+# Zhiwei Yang Git教程
 ## 常用的Git命令
 ```
 待补充
-
-
-
 ```
 ## IDE中直接使用版本控制工具
 
@@ -36,8 +33,16 @@
     - push = Upload!
 - git checkout切换分支
 - git stash 暂存分支(深入理解)
+- 推送代码三步走
+    - 先pull/fetch，有冲突解决冲突，此时本地和远端已为最新版本
+    - 检查changes内容，注意新增文件，如不必要上传，请修改`.gitignore`文件
+    - Stage all changes, 写commit信息，Commit & Push
 ## 分支的工作流程(补课)
 
 ## 代码审查（补课）
 - 开发人员
 - 审查者
+
+# 几个不错的Git教程
+- [适合初学者的简单 Git 教程-nulab](https://nulab.com/zh-cn/learn/software-development/git-tutorial/)
+- [GitHub入门文档](https://docs.github.com/zh/get-started)
