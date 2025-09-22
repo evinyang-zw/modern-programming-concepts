@@ -12,21 +12,45 @@
 // 您可以通过向下面的[prelude]中添加更多原始类型来尝试更复杂的示例
 ///|
 fn main {
-  run()
+  run((
+    #| let id = fun x -> x in
+    #| id id    
+  ))
+  run((
+    #| let apply = fun f -> fun x -> f x in
+    #| apply
+  ))
+  run((
+    #| let apply = fun f -> fun x -> f x in
+    #| let id = fun x -> x in
+    #| (id apply) id apply Int
+  ))
+  run((
+    #| fun f ->
+    #|    let x = f Int in
+    #|    f Bool
+  ))
+  run((
+    #| let map = fun f -> fun lst -> 
+    #|    fold (fun x-> fun l -> cons (f x) l) lst nil
+    #| in
+    #| let xs = map (fun x -> cons x nil) (cons Int (cons Int nil)) in
+    #| map (fun1 -> map (fun x -> Bool) l) xs
+  ))
+  run(("fun x -> x x"))
 }
 ///|
 fn run(src : String) -> Unit {
-  try parse_and_check(src)
+  try parse_and_check(src).pretty() catch {
+    err => println(err)
+  }
 }
 
 ///| 
-/// Tokenizer:在计算机科学中，分词器通常用于自然语言处理，将文本分割成更小的单元，如单词或词素，以便于进一步的分析或处理。
-/// prelude: 通常指的是程序或库的初始化部分，它包含了程序启动时需要加载的函数和变量。
-/// infer: 通常指编译器或解释器从代码中推断类型或属性。
 fn parse_and_check(src : String) -> @hm.Type raise Error {
   let t = @hm.Tokenizer::make(src)
   let expr = t.parse_whole_file!()
-  @hm.infer(prelude, expr)
+  @hm.infer(prelude, expr).generalize(0)
   
 }
 fn forall(f : (@hm.Type) -> @hm.Type) -> @hm.Type {
@@ -42,6 +66,7 @@ fn list(a : @hm.Type) -> @hm.Type {
 }
 
 ///|
+/// prelude: 通常指的是程序或库的初始化部分，它包含了程序启动时需要加载的函数和变量。
 let prelude : @hm.Map[String, @hm.Type] = @hm.Map::of_array([
   ("nil", forall(fn(a) { list(a) })),
   ("cons", forall(fn(a){ lam([a, list(a)], list(a))})),

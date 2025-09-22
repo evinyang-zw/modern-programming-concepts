@@ -1,7 +1,7 @@
 ///|
-/// Tokenizer: 在计算机科学中，分词器是一种用于将文本分解成单词、短语或符号的工具，常用于自然语言处理。
-/// cursor: 在计算机编程中，cursor通常指屏幕上的光标，用于指示文本输入的位置。
-/// cur_token: 在编程中，'cur_token'通常指的是当前正在被解析或处理的标记，如字符或符号。
+/// Tokenizer: 分词器是一种用于将文本分解成单词、短语或符号的工具，常用于自然语言处理。
+/// cursor: 通常指屏幕上的光标，用于指示文本输入的位置。
+/// cur_token: 通常指的是当前正在被解析或处理的标记，如字符或符号。
 struct Tokenizer {
   mut token_start : Int
   mut cursor : Int
@@ -24,15 +24,6 @@ priv enum Token {
   RPAREN
   EOF
 } derive(Show, Eq)
-
-///|
-enum Expr {
-  Var(String)
-  Con(String)
-  Lam(String, Expr)
-  App(Expr, Expr)
-  Let(String, Expr, Expr)
-} derive(Show)
 
 ///|
 /// BadTokenError: 无效符号错误

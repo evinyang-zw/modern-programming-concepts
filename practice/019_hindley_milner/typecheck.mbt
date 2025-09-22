@@ -20,6 +20,15 @@ enum Map[K, V] {
 }
 
 ///|
+enum Expr {
+  Var(String)
+  Con(String)
+  Lam(String, Expr)
+  App(Expr, Expr)
+  Let(String, Expr, Expr)
+} derive(Show)
+
+///|
 suberror TypeCheckError {
   OccursError
   TypeMismatchError
@@ -46,6 +55,7 @@ pub fn fresh_generic() -> Type {
   T_Var({ val : Generic(tag)})
 }
 ///|
+/// infer: 通常指编译器或解释器从代码中推断类型或属性
 pub fn infer(ctx : Map[String, Type], expr : Expr) -> Type raise TypeCheckError {
   match expr {
     Var(name) => 
@@ -64,9 +74,13 @@ pub fn infer(ctx : Map[String, Type], expr : Expr) -> Type raise TypeCheckError 
       let targ = infer(ctx, arg)
       let tret = fresh(10000000)
       unify(tfunc, T_Lam(targ, tret))
-      
+      tret.repr()
     }
-    
+    // rhs: 通常代表'right-hand side'的缩写，指的是等式或赋值语句中的右侧部分。
+    Let(name, rhs, body) => {
+      let trhs = infer(ctx,rhs).generalize(ctx.length())
+      infer(Extend(name, trhs, ctx), body)
+    }
   }
 }
 
@@ -144,6 +158,102 @@ fn unify(t1 : Type, t2 : Type) -> Unit raise TypeCheckError {
         T_Var({ val: Free(alt_tag, _) }) => if tag == alt_tag { return }
         _ => ()
       }
+      ty.check_occurs(tag, lvl)
+      tv.val = Solved(ty)
+    }
+    (T_Lam(t11, t12), T_Lam(t21, t22)) => {
+      unify(t11, t12)
+      unify(t21, t22)
+    }
+    (T_Con(con1), T_Con(con2)) => if con1 != con2 { raise TypeMismatchError }
+    (T_App(f1, a1), T_App(f2, a2)) => {
+      unify(f1, f2)
+      unify(a1, a2)
+    }
+    _ => raise TypeMismatchError
+  }
+}
+///|
+fn check_occurs(self : Type, tag : Int, lvl : Int) -> Unit raise TypeCheckError {
+  match self.repr() {
+    T_Var({ val: Free(my_tag, my_lvl) } as tvar) => 
+      if tag == my_tag {
+        raise OccursError
+      } else if lvl < my_lvl {
+        tvar.val = Free(my_tag, lvl)
+      }
+    T_Var(_) => abort("impossible")
+    T_Lam(t1, t2) | T_App(t1, t2) => {
+      t1.check_occurs(tag, lvl)
+      t2.check_occurs(tag, lvl)
+    }
+    T_Con(_) => ()
+  }
+}
+
+///|
+pub fn generalize(self : Type, lvl : Int) -> Type {
+  match self.repr() {
+    T_Var({ val: Free(tag, my_lvl) } as tv) as ty => {
+      if my_lvl >= lvl {
+        tv.val = Generic(tag)
+      }
+      ty
+    }
+    T_Lam(t1, t2) => T_Lam(t1.generalize(lvl), t2.generalize(lvl))
+    T_App(f, a) => T_App(f.generalize(lvl), a.generalize(lvl))
+    ty => ty
+  }
+}
+
+///|
+/// pretty printer for type
+pub fn pretty(self : Type) -> Unit {
+  let mut subst : Map[Int, String] = Empty
+  let buf = @buffer.new(size_hint=100)
+  fn show_var(tag: Int) -> String {
+    match subst.find(tag) {
+      None => {
+        let name = "abcdefghijklmnopqrstuvwxyz"
+          .get_char(subst.length())
+          .unwrap()
+          .to_string()
+        subst = Extend(tag, name, subst)
+        name
+      }
+      Some(name) => name
     }
   }
+  
+  fn go(ctx : Int, ty : Type) {
+    match ty.repr() {
+      T_Var({ val: Free(tag, _) }) => buf.write_string("?" + show_var(tag))
+      T_Var({ val: Generic(tag) }) => buf.write_string(show_var(tag))
+      T_Var(_) => abort("impossible")
+      T_Lam(t1, t2) => 
+        if ctx == 0 {
+          go(1, t1)
+          buf.write_string(" -> ")
+          go(0, t2)
+        } else {
+          buf.write_string("(")
+          go(0, ty)
+          buf.write_string(")")
+        }
+      T_Con(con) => buf.write_string(con)
+      T_App(f, a) => 
+        if ctx == 2 {
+          buf.write_string("(")
+          go(0, ty)
+          buf.write_string(")")
+        } else {
+          go(1, f)
+          buf.write_string(" ")
+          go(2, a)
+        }
+    }
+  }
+
+  go(0, self)
+  println(buf.to_string()) 
 }
