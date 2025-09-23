@@ -30,12 +30,13 @@ fn main {
     #|    let x = f Int in
     #|    f Bool
   ))
+  run(("cons Int (cons Int nil)"))
   run((
-    #| let map = fun f -> fun lst -> 
+    #| let map = fun f -> fun lst ->
     #|    fold (fun x-> fun l -> cons (f x) l) lst nil
     #| in
     #| let xs = map (fun x -> cons x nil) (cons Int (cons Int nil)) in
-    #| map (fun1 -> map (fun x -> Bool) l) xs
+    #| map (fun l -> map (fun x -> Bool) l) xs
   ))
   run(("fun x -> x x"))
 }
@@ -49,7 +50,7 @@ fn run(src : String) -> Unit {
 ///| 
 fn parse_and_check(src : String) -> @hm.Type raise Error {
   let t = @hm.Tokenizer::make(src)
-  let expr = t.parse_whole_file!()
+  let expr = t.parse_whole_file()
   @hm.infer(prelude, expr).generalize(0)
   
 }
