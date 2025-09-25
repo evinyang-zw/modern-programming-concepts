@@ -1,12 +1,25 @@
 # evinyang-zw/practice 训练场
-- 态度：个人兴趣，坚持每天写作
-- 目标：暴露问题，解决问题
+    - 态度：个人兴趣，坚持每天写作
+    - 目标：暴露问题，解决问题
 # 019_hindley_milner
 - 类型检查器原理支撑？
 - 解决调试代码的问题，在course中该问题也存在
-    - [Node.js](##Node.js-1)
+    - [什么是Node.js？](##Node.js-1)
+    - MoonBit Debugger？
+    - 测试？基准测试？
+- 
 ---
-## Node.js
+# 测试
+
+# 形成闭环：回顾现代思想课程
+## lec1：基础设计流程
+**设计**是将非正式的规范转化为可运行代码的过程
+
+# MoonBit Debugger？
+- http Server -> 浏览器F12 -> 调试断点
+- Vscode -> 设置断点 -> 直接调试
+
+# Node.js
 - What is Node.js? 
     - **Node.js is a JavaScript runtime environment** built on Chrome's V8 JavaScript engine. 
     - It allows developers to execute JavaScript code outside of a web browser, making it possible to use JavaScript for server-side scripting.
