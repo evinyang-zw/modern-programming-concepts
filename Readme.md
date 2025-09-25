@@ -17,4 +17,4 @@
 
 ### API文档地址： <https://mooncakes.io/docs/moonbitlang/core>
 
-## MoonBit Pilot(为 AI 时代而生的编程语言)
+## MoonBit Pilot(为AI时代而生的编程语言)
