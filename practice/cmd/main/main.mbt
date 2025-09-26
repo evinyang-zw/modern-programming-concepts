@@ -8,4 +8,6 @@ fn main {
   println(@lib.fib2(46))
   println(@lib.fib3(46))
   println(@lib.fib4(46))
+  //003_numbers
+  @lib.numbers()
 }
