@@ -1,24 +1,26 @@
 ///|
 fn main {
+  //fib
+  println("========fib=========")
   println(@lib.fib(10))
-  println("=================")
-
+  
   //001_hello
+  println("========001_hello=========")
   println(@lib.hello())
-  println("=================")
-
+  
   //002_fib
+  println("========002_fib=========")
   println(@lib.fib1(4))
   println(@lib.fib2(46))
   println(@lib.fib3(46))
   println(@lib.fib4(46))
-  println("=================")
-
+  
   //003_numbers
+  println("========003_numbers=========")
   @lib.numbers()
-  println("=================")
 
   //004_generic_list
+  println("=======004_generic_list==========")
   let ls = @lib.List::from_array([1, 2, 3, 4, 5]) //create a new List
     .map( fn(x){ x * 2 }) // double each element
     .filter(fn(x){ x < 9 }) // pick those smaller than 9
@@ -34,5 +36,9 @@ fn main {
   for i in ls {
     println("element: \{i}")
   }
-  println("=================")
+  
+  // 005_levenshtein_distance
+  println("========005_levenshtein_distance=========")
+  println(@lib.levenshtein("abcdheloworldabcd", "abcdhellowoorldabcd"))
+  
 }
