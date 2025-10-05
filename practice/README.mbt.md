@@ -1,31 +1,38 @@
 # evinyang-zw/practice 训练场
-    - 态度：个人兴趣，坚持每天编码
-    - 目标：暴露问题，解决问题
+态度：个人兴趣，坚持每天编码
+
+目标：暴露问题，解决问题
+
 ---
+
 # 019_hindley_milner
 - 类型检查器原理支撑？
+
 - 解决调试代码的问题，在course中该问题也存在
-    - [什么是Node.js？](#Node.js-1)
-    - [npm是什么？](#npm-1)
+    - [什么是Node.js？](#nodejs)
+    - [npm是什么？](#什么是-npm)
     - MoonBit Debugger？
     - 测试？基准测试？测试驱动开发流程？
     - 解决course中各lec遗留问题
+
 - 遇到问题怎么办？
-  >MoonBit官方文档 + MoonBit论坛 + 搜索引擎 + 博客 + 每周动态 + 黑板报
+    >MoonBit官方文档 + MoonBit论坛 + 搜索引擎 + 博客 + 每周动态 + 黑板报
 
 ---
+
 # 测试驱动开发流程
-- 《代码简洁之道·程序员的职业素养》-> 测试驱动开发流程
+《代码简洁之道·程序员的职业素养》-> 测试驱动开发流程
 
 。。。
 
 ---
+
 # 形成闭环：回顾现代思想课程
 
 # lec1：基础设计流程
-- **设计**是将非正式的规范转化为可运行代码的过程
+**设计**是将非正式的规范转化为可运行代码的过程
 
-- 推荐用测试驱动开发流程：
+推荐用测试驱动开发流程：
 1. 理解问题
     >涉及哪些概念，概念间存在怎样的联系？
 2. 定义接口
@@ -43,10 +50,13 @@
 。。。。
 
 ---
+
 # lec13 案例：基于梯度下降的神经网络
 - 解决遗留问题(利用debugger尝试解决一下)
+
 ---
-# MoonBit Debugger？
+
+# MoonBit Debugger？(模块已建立，正在dev)
 - http Server -> 浏览器F12 -> 调试断点(Get)
 
 - Vscode -> 设置断点 -> 直接调试
@@ -56,9 +66,11 @@
 # Node.js
 What is Node.js? 
 
-- **Node.js is a JavaScript runtime environment** built on Chrome's V8 JavaScript engine. 
-- It allows developers to execute JavaScript code outside of a web browser, making it possible to use JavaScript for server-side scripting.
-- This enables the creation of dynamic web page content before the page is sent to the user's web browser.
+**Node.js is a JavaScript runtime environment** built on Chrome's V8 JavaScript engine. 
+
+It allows developers to execute JavaScript code outside of a web browser, making it possible to use JavaScript for server-side scripting.
+
+This enables the creation of dynamic web page content before the page is sent to the user's web browser.
 
 Key Features of Node.js
 
@@ -108,6 +120,7 @@ Applications of Node.js
 Node.js has revolutionized the way JavaScript is used, extending its capabilities beyond the browser and enabling full-stack development with a single language. Its event-driven, non-blocking architecture makes it suitable for building scalable and high-performance applications
 
 ---
+
 # 什么是 npm？
 `npm`（Node Package Manager）是 JavaScript 运行时环境 Node.js 的默认包管理器。
 
