@@ -5,18 +5,24 @@
 
 ---
 
+# 005_levenshtein_distance
+- 秘塔AI搜索生成2篇参考文档帮助深入理解算法
+    - [文档1](https://metaso.cn/s/sSpfjeI)
+    
+    - [文档2](https://metaso.cn/s/dxiVZew)
+
 # 019_hindley_milner
 - 类型检查器原理支撑？
 
 - 解决调试代码的问题，在course中该问题也存在
     - [什么是Node.js？](#nodejs)
     - [npm是什么？](#什么是-npm)
-    - MoonBit Debugger？
-    - 测试？基准测试？测试驱动开发流程？
-    - 解决course中各lec遗留问题
+    - [MoonBit Debugger？](#moonbit-debugger模块已建立正在dev)
+    - [测试？基准测试？测试驱动开发流程？](#测试驱动开发流程)
+    - [解决course中各lec遗留问题](#形成闭环回顾现代思想课程)
 
-- 遇到问题怎么办？
-    >MoonBit官方文档 + MoonBit论坛 + 搜索引擎 + 博客 + 每周动态 + 黑板报
+# 遇到问题怎么办？
+>MoonBit官方文档 + MoonBit论坛 + 搜索引擎 + 博客 + 每周动态 + 黑板报
 
 ---
 

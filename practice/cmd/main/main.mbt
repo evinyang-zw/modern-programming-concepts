@@ -41,4 +41,31 @@ fn main {
   println("========005_levenshtein_distance=========")
   println(@lib.levenshtein("abcdheloworldabcd", "abcdhellowoorldabcd"))
   
+  // 006_queue
+  println("=============006_queue===============")
+  let q0 = @lib.from_array([])
+  if @lib.is_empty(q0) {
+    let q0_ = q0.enqueue(1)
+    guard q0_.peek() is Some(x)
+    println(x) //1
+  }
+  let q1 = @lib.from_array([10, 20, 30])
+  guard q1.peek() is Some(x)
+  println(x) //10
+  guard q1.dequeue() is Some(q2) && q2.peek() is Some(y)
+  println(y) //20
+  let q3 = @lib.from_list(@list.empty()).enqueue(1).enqueue(2)
+  guard q3.peek() is Some(x)
+  println(x) //1
+  guard q3.dequeue() is Some(q3_) && q3_.peek() is Some(y)
+  println(y) //2
+  guard q3.dequeue() is Some(q4) && q4.dequeue() is Some(_q5)
+  if @lib.is_empty(_q5){
+    println("Success")
+  }
+
+  //007_trait
+  println("=========007_trait==========")
+  let xs = [1, 2, 3, 4, 5]
+  println(@lib.average(xs))
 }
