@@ -68,4 +68,36 @@ fn main {
   println("=========007_trait==========")
   let xs = [1, 2, 3, 4, 5]
   println(@lib.average(xs))
+  
+  let ps : Array[@lib.Point[Int]] = [
+    { x: 1, y: 5 },
+    { x: 2, y: 4 },
+    { x: 3, y: 3 },
+    { x: 4, y: 2 },
+    { x: 5, y: 1 }
+  ]
+  println(@lib.average(ps))
+  let ps2 : Array[@lib.Point[Double]] = [
+    { x: 1.25, y: 5.25 },
+    { x: 2.25, y: 4.25 },
+    { x: 3.25, y: 3.25 },
+    { x: 4.25, y: 2.25 },
+    { x: 5.25, y: 1.25 }
+  ]
+  println(@lib.average(ps2))
+
+  // 008_object
+  println("========008_object=======")
+  let duck1 = @lib.Duck::{ name: "duck1" }
+  let fox1 = @lib.Fox::{ name: "fox1" }
+  let duck2 = @lib.Duck::{ name: "duck2"}
+  // use [expr as Trait] to explicitly create trait objects
+  // 使用 [expr as Trait] 来显式创建特征对象
+  let duc1_animal : &@lib.Animal = duck1 as &@lib.Animal
+  let fox1_animal : &@lib.Animal = fox1 as &@lib.Animal
+  let duck2_animal : &@lib.Animal = duck2 as &@lib.Animal
+  @lib.speak_together([duc1_animal, fox1_animal, duck2_animal])
+  println("MoonBit can automatically insert [as] using type information")
+  //MoonBit 可以使用类型信息自动插入 [as]
+  @lib.speak_together([duck1, fox1, duck2])
 }

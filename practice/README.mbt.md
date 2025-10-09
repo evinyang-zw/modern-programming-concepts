@@ -5,6 +5,12 @@
 
 ---
 
+# 008_object
+- 特征和特征对象，非常有意思且强大👍
+
+# 007_trait
+- 可以帮助更好理解MoonBit语言的特征系统，需要回顾
+
 # 005_levenshtein_distance
 - 秘塔AI搜索生成2篇参考文档帮助深入理解算法
     - [文档1](https://metaso.cn/s/sSpfjeI)
