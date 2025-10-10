@@ -100,4 +100,13 @@ fn main {
   println("MoonBit can automatically insert [as] using type information")
   //MoonBit 可以使用类型信息自动插入 [as]
   @lib.speak_together([duck1, fox1, duck2])
+
+  // 009_derive
+  println("=======009_derive=========")
+  let t1 = @lib.T::default() //Default //
+  let t2 = @lib.T::{ x: 1, y: 1 }
+  println(t1) //Show // {x: 0, y: 0}
+  println(t2) //Show // {x: 1, y: 1}
+  println(t1 == t2) //Eq // false
+  println(t1 < t2) // Compare // true
 }
