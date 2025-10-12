@@ -109,4 +109,29 @@ fn main {
   println(t2) //Show // {x: 1, y: 1}
   println(t1 == t2) //Eq // false
   println(t1 < t2) // Compare // true
+
+  //010_operator_overload
+  println("===010_operator_overload===")
+  let a = @lib.T2::{ x: 0 }
+  let b = @lib.T2::{ x: 2 }
+  println(a + b)
+  
+  // 011_tuple_accessors
+  println("===011_tuple_accessors===")
+  // This example demonstrates tuple accessor in MoonBit.
+  // The components of tuple can be extracted directly via [.index](zero based)
+  // 这个例子展示了MoonBit中的元组访问器。
+  // 元组的组件可以通过[.index]直接提取（基于零索引）
+
+  // access via index
+  let x = (1, 2)
+  println(x.0) //1
+  println(x.1) //2
+  // print(x.2) //error, 2-tuple has no field `2`
+  let y = ("apple", "tomato", "banana")
+  println(y.2) // "banana"
+  // access via pattern matching👏
+  let (a, b) = (100, 200)
+  println("a: \{a}, b: \{b}") // a: 100, b: 200
+
 }
