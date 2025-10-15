@@ -12,7 +12,7 @@
 /// 
 /// `Empty` 表示 AVL 树中的空节点
 /// `Node` 表示 AVL 树中的节点，具有左子节点、值、右子节点和高度
-pub enum AVLT[U] {
+pub(all) enum AVLT[U] {
   Empty
   Node(left~ : AVLT[U], elem~ : U, right~ : AVLT[U], height~ : Int )
 }
