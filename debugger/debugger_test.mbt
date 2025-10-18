@@ -5,8 +5,5 @@ test "fib" {
   // `inspect` is used to check the output of the function
   // Just write `inspect(value)` and execute `moon test --update`
   // to update the expected output, and verify them afterwards
-  //
-  // `inspect` 用于检查函数的输出
-  // 👍直接写 `inspect(value)` 并执行 `moon test --update`，更新预期输出，并进行验证
   inspect(array, content="[1, 2, 3, 5, 8]")
 }

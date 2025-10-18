@@ -166,4 +166,25 @@ fn main {
     Empty => println("success")
     Node(_) => println("impossible")
   }
+
+  // 013_string.mbt
+  println("====013_string.mbt====")
+  let a = @lib.T3::A
+  let b = @lib.T3::B
+  // Format strings contain "replacement fields" surround by \{}
+  // Custom data types with the [to_string] method can be spliced directly
+  println("Hello a: \{a} & b: \{b} -- wow~") // Hello a: A & b: B -- wow~
+  let c = "string" + " to" + " append" 
+  println(c) // string to append
+  // multi-line string literal(文字)
+  let m = 
+    #| A
+    #| multi-line
+    #| string
+    $| \{b} & \{a}
+  println(m)
+  //  A
+  //  multi-line
+  //  string
+  //  B & A  
 }
