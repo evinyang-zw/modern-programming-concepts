@@ -167,7 +167,7 @@ fn main {
     Node(_) => println("impossible")
   }
 
-  // 013_string.mbt
+  // 013_string
   println("====013_string.mbt====")
   let a = @lib.T3::A
   let b = @lib.T3::B
@@ -187,4 +187,10 @@ fn main {
   //  multi-line
   //  string
   //  B & A  
+
+  //014_unicode
+  println("====014_unicode====")
+  let 😂= @lib.T4(3)
+  😂.🥰()// T4(3)
+  
 }
