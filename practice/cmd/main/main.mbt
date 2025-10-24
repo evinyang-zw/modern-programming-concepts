@@ -167,7 +167,7 @@ fn main {
     Node(_) => println("impossible")
   }
 
-  // 013_string.mbt
+  // 013_string
   println("====013_string.mbt====")
   let a = @lib.T3::A
   let b = @lib.T3::B
@@ -187,4 +187,39 @@ fn main {
   //  multi-line
   //  string
   //  B & A  
+
+  // 014_unicode
+  println("====014_unicode====")
+  let 😂= @lib.T4(3)
+  😂.🥰()// T4(3)
+
+  // 015_hamt
+  println("=====015_hamt=====")
+  let n = 10
+  let mut hamt = @lib.make()
+  for i = 0; i < n; i = i + 1 {
+    hamt = hamt.add(i, i)
+  }
+  let collision_count = hamt.count_collision()
+  println("number of collision: \{collision_count}")
+  // uncomment this to see the tree (large trees may not display properly)
+  // 取消注释以查看树形结构（大树可能无法正确显示）
+  // hamt.print_hamt(10)⚠️
+  let mut is_ok = true
+  for i = 0; i < n; i = i + 1 {
+    match hamt.find(i) {
+      Some (v) => 
+        if v != i {
+          is_ok = false
+          println("\{i}: wrong value")
+        }
+      None => {
+        is_ok = false
+        println("\{i}: not found")
+      }
+    }
+    if is_ok {
+      println("OK!")
+    }
+  }
 }
