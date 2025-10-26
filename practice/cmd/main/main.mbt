@@ -195,7 +195,7 @@ fn main {
 
   // 015_hamt
   println("=====015_hamt=====")
-  let n = 10
+  let n = 3
   let mut hamt = @lib.make()
   for i = 0; i < n; i = i + 1 {
     hamt = hamt.add(i, i)
@@ -204,7 +204,7 @@ fn main {
   println("number of collision: \{collision_count}")
   // uncomment this to see the tree (large trees may not display properly)
   // 取消注释以查看树形结构（大树可能无法正确显示）
-  // hamt.print_hamt(10)⚠️
+  //hamt.print_hamt(0)
   let mut is_ok = true
   for i = 0; i < n; i = i + 1 {
     match hamt.find(i) {
@@ -222,4 +222,23 @@ fn main {
       println("OK!")
     }
   }
+  
+  // 016_skew_binary_list
+  let xs = @lib.BList::from_array([1, 2, 3, 4, 5])
+  println(xs)
+  loop (xs.pop()) {
+    None => ()
+    Some((x, xs)) => {
+      println(x)
+      continue xs.pop()
+    }
+  }
+  // note that [xs] is untouched since [BList] is functional
+  // 请注意，[xs] 没有被改变，因为 [BList] 是函数式的💡⚠️
+  let xs = xs.push(6).push(7)
+  println(xs)
+  for i = 0; i < xs.bl_length(); i = i + 1 {
+    println(xs[i])
+  }
+  
 }

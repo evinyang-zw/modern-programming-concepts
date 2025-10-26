@@ -11,7 +11,7 @@
 /// 
 /// Count the number of set bits (1s) in a 32-bit integer. 
 /// 统计一个32位整数中设置位（1）的数量。
-pub fn ctpop(n : Int) -> Int {
+fn ctpop(n : Int) -> Int {
   // extract the lower bit of every 2-bit group
   // 提取每个2位组的低位
   let low_of_2bits = 0x55555555
@@ -48,9 +48,9 @@ pub fn ctpop(n : Int) -> Int {
 ///|
 /// a simple bit set to store a set of integers less than 32
 /// 一个简单的位集，用于存储小于32的整数集
-pub struct BitSet {
+struct BitSet {
   rep: Int
-} derive(Show)
+}
 
 ///|
 let empty_bitset : BitSet = { rep : 0 }
@@ -60,7 +60,7 @@ let empty_bitset : BitSet = { rep : 0 }
 /// 
 /// Check if the given index is present in the bitset.
 /// 检查给定的索引是否存在于位集中。
-pub fn BitSet::has(self : BitSet, idx : Int) -> Bool {
+fn BitSet::has(self : BitSet, idx : Int) -> Bool {
   (self.rep & (1 << idx)) != 0
 }
 
@@ -69,7 +69,7 @@ pub fn BitSet::has(self : BitSet, idx : Int) -> Bool {
 /// 
 /// Get the index of the bit in the bitset.
 /// 获取位集中位的索引。❓
-pub fn BitSet::index_of(self : BitSet, idx : Int) -> Int {
+fn BitSet::index_of(self : BitSet, idx : Int) -> Int {
   let items_below_idx = self.rep & ((1 << idx) - 1)
   ctpop(items_below_idx)
 }
@@ -79,7 +79,7 @@ pub fn BitSet::index_of(self : BitSet, idx : Int) -> Int {
 /// 
 /// Add a new index to the bitset.
 /// 向位集添加一个新索引。
-pub fn BitSet::add(self : BitSet, idx : Int) -> BitSet {
+fn BitSet::add(self : BitSet, idx : Int) -> BitSet {
   { rep: self.rep | (1 << idx) }
 }
 
@@ -96,20 +96,20 @@ pub fn BitSet::remove(self : BitSet, idx : Int) -> BitSet {
 /// A sparse array with at most 32 elements, where elements are not required to have contiguous index.
 /// Empty elements don't waste any space, without losing constant-time access
 /// 一个最多包含32个元素的稀疏数组，其中元素不需要具有连续的索引。空的元素不会浪费任何空间，而不会失去常数时间访问
-pub struct Sparse_Array[X] {
+struct Sparse_Array[X] {
   // record which elements are present
   // 记录哪些元素存在：在稀疏数组结构中，此短语用于描述如何追踪哪些索引位置有实际数据元素，以优化存储和访问效率。
   // sparse: 指的是数组中元素分布不连续，即元素之间没有连续的索引，这样的数组结构可以节省存储空间，同时保持常数时间访问效率。
   elem_info : BitSet
   data : Array[X]
-} derive(Show)
+}
 
 ///|
 /// `make_sparse_array[X](idx: Int, value: X)`
 /// 
 /// Create a new sparse array with a single element.
 /// 创建一个包含单个元素的稀疏数组。
-pub fn[X] make_sparse_array(idx : Int, value : X) -> Sparse_Array[X] {
+fn[X] make_sparse_array(idx : Int, value : X) -> Sparse_Array[X] {
   { elem_info: empty_bitset.add(idx), data: [value] }
 }
 
@@ -195,13 +195,13 @@ pub enum HAMT[K, V] {
   Leaf(K, V) //optimize for the case of no collision 针对无冲突的情况进行优化
   Collision(Bucket[K, V]) // use a list of buckets to resolve collision 使用一个桶列表来处理冲突
   Branch(Sparse_Array[HAMT[K, V]])
-} derive(Show)
+}
 
 ///|
 enum Bucket[K, V] {
   Just_One(K, V) //must be non-empty 必须非空
   More(K, V, Bucket[K, V])
-} derive(Show)
+} 
 
 ///|
 /// The number of bits consumed at every [Branch] node
@@ -390,5 +390,57 @@ fn[K : Eq, V] Bucket::find(self : Bucket[K, V], key : K) -> V? {
       } else {
         rest.find(key)
       }
+  }
+}
+
+///|
+/// `println[K: Show, V: Show](self: HAMT[K, V], indent: Int)`
+/// 
+/// Print the contents of the Hash Array Mapped Trie (HAMT) with indentation.
+pub fn[K : Show, V : Show] HAMT::print_hamt(
+  self : HAMT[K, V],
+  indent : Int
+) -> Unit {
+  match self {
+    Empty => println("Empty")
+    Leaf(k, v) => println("\{k} => \{v}")
+    Collision(bucket) => bucket.print_bucket()
+    Branch(children) => 
+      if children.data.length() == 0 {
+        println("Empty")
+      } else {
+        println("Branch")
+        for i = 0; i < 32; i = i + 1 {
+          match children[i] {
+            Some(child) => {
+              for n = 0; n < indent; n = n + 1 {
+                println(' ')
+              }
+              println("#\{i}")
+              for n = 0; n < indent; n = n + 1 {
+                println(' ')
+              }
+              println("- ")
+              child.print_hamt(indent)
+            }
+            None => ()
+          }
+        }
+      }
+  }
+}
+
+///|
+/// `println[K: Show, V: Show](self: Bucket[K, V])`
+/// 
+/// Print the contents of Bucket.
+/// 打印Bucket的内容。
+fn[K : Show, V : Show] print_bucket(self : Bucket[K, V]) -> Unit {
+  match self {
+    Just_One(k, v) => println("\{k} => \{v}")
+    More(k, v, rest) => {
+      println("\{k} => \{v};")
+      rest.print_bucket()
+    }
   }
 }
