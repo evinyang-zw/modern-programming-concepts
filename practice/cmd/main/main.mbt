@@ -224,6 +224,7 @@ fn main {
   }
   
   // 016_skew_binary_list
+  println("====016_skew_binary_list====")
   let xs = @lib.BList::from_array([1, 2, 3, 4, 5])
   println(xs)
   loop (xs.pop()) {
@@ -241,4 +242,14 @@ fn main {
     println(xs[i])
   }
   
+  //017_vector
+  println("=====017_vector=====")
+  let v1 : @lib.Vector[Int] = @lib.Vector::new(5)
+  println(v1)
+  v1.push_back(42)
+  println(v1)
+  let v2 : @lib.Vector[@lib.T5] = @lib.Vector::new(5)
+  println(v2)
+  v2.push_back({ x: 42 })
+  println(v2)
 }
