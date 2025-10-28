@@ -1,9 +1,16 @@
 # evinyang-zw/practice 训练场
-态度：个人兴趣，坚持每天编码
+态度：个人兴趣，每天坚持编码
 
 目标：暴露问题，解决问题
 
 ---
+# 018_global_mutable
+- 又一次感受到inspect用法的巧妙, 自动更新输出值
+```
+`inspect` is used to check the output of the function.
+Just write `inspect(value)` and execute `moon test --update`to update the expected output, and verify them afterwards
+```
+- 从未见过如此巧妙的东西，没成想竟是MoonBit编程语言🥰
 # 017_vector
 - 又是一个很牛的数据结构🙌
 - MoonBit入门级的数据结构练习，带你体验不一样的编程体验
