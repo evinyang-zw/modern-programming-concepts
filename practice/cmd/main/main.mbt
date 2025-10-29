@@ -195,7 +195,7 @@ fn main {
 
   // 015_hamt
   println("=====015_hamt=====")
-  let n = 10
+  let n = 3
   let mut hamt = @lib.make()
   for i = 0; i < n; i = i + 1 {
     hamt = hamt.add(i, i)
@@ -204,7 +204,7 @@ fn main {
   println("number of collision: \{collision_count}")
   // uncomment this to see the tree (large trees may not display properly)
   // 取消注释以查看树形结构（大树可能无法正确显示）
-  // hamt.print_hamt(10)⚠️
+  //hamt.print_hamt(0)
   let mut is_ok = true
   for i = 0; i < n; i = i + 1 {
     match hamt.find(i) {
@@ -222,4 +222,41 @@ fn main {
       println("OK!")
     }
   }
+  
+  // 016_skew_binary_list
+  println("====016_skew_binary_list====")
+  let xs = @lib.BList::from_array([1, 2, 3, 4, 5])
+  println(xs)
+  loop (xs.pop()) {
+    None => ()
+    Some((x, xs)) => {
+      println(x)
+      continue xs.pop()
+    }
+  }
+  // note that [xs] is untouched since [BList] is functional
+  // 请注意，[xs] 没有被改变，因为 [BList] 是函数式的💡⚠️
+  let xs = xs.push(6).push(7)
+  println(xs)
+  for i = 0; i < xs.bl_length(); i = i + 1 {
+    println(xs[i])
+  }
+  
+  //017_vector
+  println("=====017_vector=====")
+  let v1 : @lib.Vector[Int] = @lib.Vector::new(5)
+  println(v1)
+  v1.push_back(42)
+  println(v1)
+  let v2 : @lib.Vector[@lib.T5] = @lib.Vector::new(5)
+  println(v2)
+  v2.push_back({ x: 42 })
+  println(v2)
+
+  // 021_recursive_type_fixpoint
+  println("===021_recursive_type_fixpoint===")
+  println(@lib.iota(10).map(@lib.fix(@lib.gen_factorial)))
+  // => [1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]
+  println(@lib.iota(10).map(@lib.fix_rec(@lib.gen_fibonacci)))
+  // => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 }

@@ -1,9 +1,32 @@
 # evinyang-zw/practice 训练场
-态度：个人兴趣，坚持每天编码
+态度：个人兴趣，每天坚持编码
 
 目标：暴露问题，解决问题
 
 ---
+# 021_recursive_type_fixpoint
+- 不懂，放弃😓
+# 018_global_mutable
+- 又一次感受到inspect用法的巧妙, 自动更新输出值
+```
+`inspect` is used to check the output of the function.
+Just write `inspect(value)` and execute `moon test --update`to update the expected output, and verify them afterwards
+```
+- 从未见过如此巧妙的东西，没成想竟是MoonBit编程语言🥰
+# 017_vector
+- 又是一个很牛的数据结构🙌
+- MoonBit入门级的数据结构练习，带你体验不一样的编程体验
+- 既能存一般数据类型，又能存复杂的数据类型（如结构体类型）
+# 016_skew_binary_list
+- main中少少的几行代码，竟然需要调用那么多的方法😃(amazing)
+- 一知半解，重点回顾内容❓⚠️
+- 阅读参考书目，必要时借助AI工具帮助理解代码
+# 015_hamt
+- 练习后的认识：
+    - moonbit语言简洁、高效、强壮，主要体现在模式匹配，递归自调👍
+    - 对复杂度高的数据结构，依然有其强劲的实现能力👍
+- 没理解HAMT数据结构，只有初步的印象和感觉❓
+- 重点回顾内容，可参考相关论文，必要时使用AI帮助理解⚠️
 # 012_avl_tree
 - 💡注意`bal[U]()`平衡操作，难点在如何重构新的AVL树节点？如有必要可借助AI动态演示加深理解
 - 👍代码思路清晰，简洁精炼，值得再次回顾，直至吃透对`AVL tree`的每个操作
