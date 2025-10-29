@@ -252,4 +252,11 @@ fn main {
   println(v2)
   v2.push_back({ x: 42 })
   println(v2)
+
+  // 021_recursive_type_fixpoint
+  println("===021_recursive_type_fixpoint===")
+  println(@lib.iota(10).map(@lib.fix(@lib.gen_factorial)))
+  // => [1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800]
+  println(@lib.iota(10).map(@lib.fix_rec(@lib.gen_fibonacci)))
+  // => [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 }
