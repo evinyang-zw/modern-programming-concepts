@@ -4,6 +4,12 @@
 目标：暴露问题，解决问题
 
 ---
+# 020_regex_derivative
+- 2025年10月31日23点45分 test1()方法执行失败
+```
+thread 'main' has overflowed its stack
+error: failed to run
+```
 # 021_recursive_type_fixpoint
 - 不懂，放弃😓
 # 018_global_mutable
