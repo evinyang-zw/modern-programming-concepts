@@ -1,5 +1,5 @@
 # MoonBit Debugger
-- >作者：Zhiwei Yang
+- >作者：Evin Yang
 - >时间：2025年10月16日11点20分
 ---
 - 1.http Server -> 浏览器F12 -> 调试断点
