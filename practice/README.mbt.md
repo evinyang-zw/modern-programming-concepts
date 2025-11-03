@@ -4,6 +4,15 @@
 目标：暴露问题，解决问题
 
 ---
+# 020_regex_derivative
+- 2025年10月31日23点45分 test1()方法执行失败
+```
+thread 'main' has overflowed its stack
+error: failed to run
+```
+- c.dump()已实现
+- 需要处理报错 😒
+- 有难度，需回顾❓
 # 021_recursive_type_fixpoint
 - 不懂，放弃😓
 # 018_global_mutable
@@ -67,12 +76,12 @@ Just write `inspect(value)` and execute `moon test --update`to update the expect
 
 ---
 
-# 形成闭环：回顾现代思想课程
+# 形成闭环：[回顾现代思想课程](../course/学习计划.md)
 
 # lec1：基础设计流程
-**设计**是将非正式的规范转化为可运行代码的过程
+- **设计**是将非正式的规范转化为可运行代码的过程
 
-推荐用测试驱动开发流程：
+- 推荐用测试驱动开发流程：
 1. 理解问题
     >涉及哪些概念，概念间存在怎样的联系？
 2. 定义接口

@@ -7,7 +7,7 @@ backgroundImage: url('路径')
 headingDivider: 1
 ---
 # Markdown语法
->本文作者：Zhiwei Yang  
+>本文作者：Evin Yang  
 >时间：20250929
 ---
 ## [Markdwon官方教程](https://markdown.com.cn/basic-syntax/)
@@ -75,6 +75,14 @@ Python语言
 |`Double`|`0.12` `3.1415`|`+` `-` `*` `/`|`3.0 * (4.0 * a)`|
 |`String`|`"hello"` `"Moonbit"`|`+`|`"Hello, " + "MoonBit"`|
 |`Bool`|`true` `false`|`&&` `\|\|` `not()`|`not(b1) \|\| b2`|
+## 处理长文本
+- 当单元格内容较长时，可以使用以下技巧：
+- 换行处理：
+
+| 项目 | 详细说明 |
+|------|----------|
+| 需求分析 | 1. 收集用户需求<br>2. 分析业务场景<br>3. 确定功能范围 |
+| 技术选型 | 前端：React + TypeScript<br>后端：Node.js + Express<br>数据库：MongoDB |
 
 # 表格2
 $$
@@ -120,3 +128,16 @@ $$
     >`Hugo`: Hugo是由Go编写的快速现代静态网站生成器，旨在让网站创建变得有趣
 - 如果你想在`没有服务器的情况下获取视频的在线链接`，可以利用视频托管平台
 ---
+# Markdown 上下角标
+- Markdown 本身不直接支持上下角标，但可以通过 HTML 标签 或 扩展语法 实现。
+## 使用 HTML 标签实现
+- 通过`<sup>`和`<sub>`标签分别实现上标和下标。
+- 示例：
+```
+上标：没有调查没有发言权<sup>[1]</sup>
+下标：H<sub>2</sub>O
+```
+- 渲染效果：
+    - 没有调查没有发言权<sup>[1]</sup>
+    - H<sub>2</sub>O
+## 使用 Markdown 扩展语法（暂时不需要，使用到时再补充）

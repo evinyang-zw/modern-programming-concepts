@@ -1,0 +1,9 @@
+{
+  "is-main": true,
+  "import": [
+    {
+      "path": "evinyang-zw/practice/020_regex_derivative",
+      "alias": "rd"
+    }
+  ]
+}

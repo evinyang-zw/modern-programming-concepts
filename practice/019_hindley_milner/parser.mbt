@@ -2,7 +2,7 @@
 /// Tokenizer: 分词器是一种用于将文本分解成单词、短语或符号的工具，常用于自然语言处理。
 /// cursor: 通常指屏幕上的光标，用于指示文本输入的位置。
 /// cur_token: 通常指的是当前正在被解析或处理的标记，如字符或符号。
-struct Tokenizer {
+pub struct Tokenizer {
   mut token_start : Int
   mut cursor : Int
   src : String
@@ -12,7 +12,7 @@ struct Tokenizer {
 ///|
 /// IDENT: 在编程语言中,'IDENT'通常指的是标识符，即用于命名变量、函数等的名称
 /// EOF: 文件结束标记
-priv enum Token {
+pub enum Token {
   LET
   EQUAL
   IN
