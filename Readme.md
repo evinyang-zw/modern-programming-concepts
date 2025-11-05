@@ -1,5 +1,5 @@
 # 现代编程思想
-- Email: `chinayzw6375@163.com`
+- Email: `evinyang1998@foxmail.com`
 - Username: `evinyang-zw`
 - 仓库名称：`modern-programming-concepts`
 - 描述：`Programming with MoonBit: A Modern Approach`

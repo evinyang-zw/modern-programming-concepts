@@ -107,8 +107,11 @@ Just write `inspect(value)` and execute `moon test --update`to update the expect
 
 # MoonBit Debugger？(模块已建立，正在dev)
 - http Server -> 浏览器F12 -> 调试断点(Get)
-
+    - wasm
+    - js
 - Vscode -> 设置断点 -> 直接调试
+    - javascript debug terminal 执行命令
+    - lunch.json 启动调试
 
 ---
 
