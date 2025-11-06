@@ -7,8 +7,8 @@
 git init                                                  # 初始化本地git仓库（创建新仓库）
 git config --list                                         # 查看当前的 Git 配置信息
 git config --list --show-origin                           # 查看配置来源，可以添加 --show-origin 参数
-git config --global user.name "xxx"                       # 配置用户名
-git config --global user.email "xxx@xxx.com"              # 配置邮件
+git config --global user.name "xxx"                       # 配置全局用户名
+git config --global user.email "xxx@xxx.com"              # 配置全局邮件
 
 git config --global color.ui true                         # git status等命令自动着色
 git config --global color.status auto
@@ -19,7 +19,7 @@ git config --global --unset http.proxy                    # remove proxy configu
 
 git config user.name "仓库用户名"                          # 为某个特定仓库单独设置用户名
 git config user.email "仓库邮箱@example.com"               # 为某个特定仓库单独设置邮箱
-git config --replace-all user.name "新用户名"              # 修改已配置的用户名信息
+git config --replace-all user.name "新用户名"              # 修改已配置的用户名信息（仅能修改当前仓库）
 git config --replace-all user.email "新邮箱@example.com"   # 修改已配置的邮箱信息
 git config --unset user.name                              # 删除某项配置
 git clone git+ssh://git@192.168.53.168/VT.git             # clone远程仓库
