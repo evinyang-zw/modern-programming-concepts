@@ -1,5 +1,5 @@
 # Zhiwei Yang Git教程
-- >作者：Zhiwei Yang
+- >作者：evinyang
 - >时间：20250930
 - >[适合初学者的简单Git教程-nulab](https://nulab.com/zh-cn/learn/software-development/git-tutorial/)
 ---

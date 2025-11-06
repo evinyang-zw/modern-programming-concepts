@@ -41,6 +41,7 @@ npm run serve
 - 以 [Show case of how to debug under moonbit javascript target](https://github.com/moonbit-community/moonbit-js-debug-demo)为例，你需要打开vscode的javascript debug terminal，然后使用node target/js/debug/build/debugdemo.js来启动调试Session
 
 - 然后由于我们生成的sourcemap将源码统一放到了moonbit://下。所以你需要先在程序断在entry位置，然后从vscode调试器里面loaded scripts中找到对应源码再在上面下断点
+
 ![alt text](image-1.png)
 
 - [VSCode调试参考文章](https://taolun.moonbitlang.com/t/topic/756/7?u=evinyang-zw)
