@@ -1,7 +1,8 @@
 # MoonBit构建系统
-- >作者：Zhiwei Yang
-- >时间：2025年10月16日11点12分
 - [官方文档](https://docs.moonbitlang.cn/toolchain/moon/index.html) 
+---
+- >读者：evinyang
+- >时间：2025年10月16日11点12分
 ---
 # moon的命令行
 
@@ -44,5 +45,6 @@ my_project
 ├── README.mbt.md
 └── README.md -> README.mbt.md
 ```
-
 ## `moon build`
+
+## `moon update`
