@@ -1,8 +1,14 @@
 # Git 常用命令大全
-- [参考文章](https://gist.github.com/guweigang/9848271)
+- [参考文档](https://gist.github.com/guweigang/9848271)
+---
+- 作者：evinyang
+- 时间：2025年11月7日
+---
+- 速查表
 
 ![Git常用命令速查表](image.png)
 
+- 速用表
 ```sh
 git init                                                  # 初始化本地git仓库（创建新仓库）
 git config --list                                         # 查看当前的 Git 配置信息

@@ -57,9 +57,10 @@
 
 - 审查者
 ---
-
 # GitHub
 - [GitHub入门文档](https://docs.github.com/zh/get-started)
+
+- GitHub认证
 ---
 ## Issues问题
 - 遇到bug时，开启一个问题的模板
