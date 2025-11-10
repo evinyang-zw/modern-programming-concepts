@@ -7,7 +7,7 @@ backgroundImage: url('路径')
 headingDivider: 1
 ---
 # Markdown语法
->本文作者：Evin Yang  
+>本文作者：evinyang 
 >时间：20250929
 ---
 ## [Markdwon官方教程](https://markdown.com.cn/basic-syntax/)
