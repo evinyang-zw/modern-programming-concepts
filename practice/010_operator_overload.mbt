@@ -16,7 +16,7 @@
 /// | `_[_] = _`(set item) | `op_set`(method) |
 /// 
 /// For more, see : https://docs.moonbitlang.com/en/latest/language/methods.html#operator-overloading
-pub struct T2 {
+pub(all) struct T2 {
   x : Int
 } derive(Show)
 
