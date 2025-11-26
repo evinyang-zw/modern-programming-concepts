@@ -10,7 +10,7 @@ enum List[X] {
 
 ///| OO style
 /// 面向对象风格：类、对象
-pub fn[X] concat(self : List[X], ys : List[X]) -> List[X] {
+pub fn[X] List::concat(self : List[X], ys : List[X]) -> List[X] {
   match self {
     Nil => ys
     Cons(x, rest) => Cons(x, rest.concat(ys))
@@ -18,7 +18,7 @@ pub fn[X] concat(self : List[X], ys : List[X]) -> List[X] {
 }
 
 ///| apply function `f` to each element of List, collect the results into a new List.
-pub fn[X, Y] map(self : List[X], f : (X) -> Y) -> List[Y] {
+pub fn[X, Y] List::map(self : List[X], f : (X) -> Y) -> List[Y] {
   match self {
     Nil => Nil
     Cons(x, rest) => Cons(f(x), rest.map(f))
