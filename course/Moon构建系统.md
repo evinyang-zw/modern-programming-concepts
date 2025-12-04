@@ -1,6 +1,6 @@
 # MoonBit构建系统
 - 作者：MoonBit团队
-- [官方文档](https://docs.moonbitlang.cn/toolchain/moon/index.html) 
+- 文档：[文档链接](https://docs.moonbitlang.cn/toolchain/moon/index.html) 
 ---
 - >读者：evinyang
 - >时间：2025年10月16日
